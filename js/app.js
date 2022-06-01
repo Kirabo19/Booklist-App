@@ -10,7 +10,7 @@ if (savedData && savedData !== null) {
 }
 
 const showData = () => {
-    books.innerHTML = '';
+    booklist.innerHTML = '';
     books.forEach((value, index) => {
         booklist.innerHTML += `
           <div>
@@ -22,16 +22,18 @@ const showData = () => {
            <hr>
          </div>`;
     });
+
 };
 
 showData();
 
-const saveData = () => localStorage.setItem('savedInput', JSON.stringify(books));
+const saveData = () => localStorage.setItem('savedInputs', JSON.stringify(books));
 
 const deleteBook = (index) => {
     if (index !== null && index !== undefined) {
         books.splice(index, 1);
         saveData();
+        // location.reload(); 
         showData();
     }
 };
@@ -47,6 +49,7 @@ btnAdd.addEventListener('click', (e) => {
 
     books.push(addData);
     saveData();
+    // location.reload(); 
     showData();
 });
 
