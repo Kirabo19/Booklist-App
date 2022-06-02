@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,27 @@
     <title>Awesome books</title>
     <script src="./js/app.js" defer></script>
 </head>
+
 <body>
-    <h1>Awesome books</h1>
-    <div id="book-list">
+    <div class="list-display flex">
+        <h1>All awesome books</h1>
+        <ul id="bookList"></ul>
     </div>
-    <form> 
-        <input type="text" id="title" placeholder="Title">
-        <input type="text" id="author" placeholder="Author">
-        <button type="submit" id="add-btn">add</button>
-    </form>
+
+    <div class="hr-display flex">
+        <hr>
+    </div>
+   
+    <div class="Add-book-section flex">
+        <h1>Add a new book</h1>
+        <form id="book-entry-form">
+            <div class="form-input flex">
+                <input type="text" id="title" placeholder="Title"><br>
+                <input type="text" id="author" placeholder="Author"><br>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>
