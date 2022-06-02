@@ -19,7 +19,7 @@ class Book {
     localStorage.setItem('books', JSON.stringify(books));
   }
 
-  static removeBook(id) {
+  static removeBook(title) {
     const books = Book.getBooks();
 
     books.forEach((book, index) => {
@@ -31,7 +31,7 @@ class Book {
   }
 
   static addBooksToList(book) {
-    const list = document.querySelector('#books-list');
+    const list = document.querySelector('#book-list');
 
     const itemsList = document.createElement('li');
 
@@ -67,12 +67,12 @@ form.addEventListener('submit', () => {
   // const id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
 
   const book = new Book(title, author);
-
+  
   Book.addBooksToList(book);
   Book.addBooks(book);
 });
 
-document.querySelector('#books-form').addEventListener('click', (e) => {
+document.querySelector('#book-list').addEventListener('click', (e) => {
   Book.deleteBook(e.target);
 
   Book.removeBook(e.target.title);
