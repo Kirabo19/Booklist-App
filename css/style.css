@@ -5,6 +5,7 @@
   padding: 0;
   font-family: 'Comic Neue', cursive;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .flex {
@@ -100,7 +101,7 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 90vw;
   height: 50px;
   margin: 10px auto;
   padding: 10px;
@@ -110,4 +111,26 @@ h1 {
 
 li {
   list-style: none;
+}
+
+.navlist {
+  flex-direction: row;
+  gap: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3a3a;
+  
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3a3a;
+}
+
+.currentDT {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3a3a;
+  
 }
