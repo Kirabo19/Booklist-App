@@ -13,27 +13,27 @@
 <body>
     <header class="book-app flex">
         <div class="app-title">Awesome books</div>
-        <nav> 
+        <nav>
             <ul class=" navlist flex">
-                <li><a href="">List</a></li>
+                <li id="bk-List"><a href="">List</a></li>
                 <li>|</li>
-                <li><a href="">Add New Book</a</li>
+                <li id="add-form"><a href="">Add New Book</a< /li>
                 <li>|</li>
-                <li><a href="">Contact</a></li>
+                <li id="contact-form"><a href="">Contact</a></li>
             </ul>
         </nav>
-   </header>
+    </header>
 
-   <section class="list-display flex">
-    <div class="currentDT">March 19th 2021, 9:25:32 am</div>
-    <h1>All awesome books</h1>
-    <ul id="bookList"></ul>
-   </section>
+    <section id="list-sec" class="list-display flex">
+        <div class="currentDT">March 19th 2021, 9:25:32 am</div>
+        <h1>All awesome books</h1>
+        <ul id="bookList"></ul>
+    </section>
     <!-- <div class="hr-display flex">
         <hr>
     </div> -->
-   
-    <div class="Add-book-section flex">
+
+    <section id="book-entry" class="Add-book-section flex dontShow">
         <h1>Add a new book</h1>
         <form id="book-entry-form">
             <div class="form-input flex">
@@ -42,7 +42,21 @@
                 <button type="submit">Add</button>
             </div>
         </form>
-    </div>
+    </section>
+    <section id="contact-sec" class="contact-form dontShow">
+        <h1>Contact Information</h1>
+        <p>Do have any question or you just want to say "Hello"?<br>
+            You can reach out to us!
+        </p>
+         <ul>
+             <li>Our email: mail@mail.com</li>
+             <li>Our phone number: 0043586534422</li>
+             <li>Our address: Streetname 22, 84503 City, Country</li>
+         </ul>
+    </section>
+    <footer>
+        <div>Copyright   ...</div>
+    </footer>
 </body>
 
 </html>

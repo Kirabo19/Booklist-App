@@ -76,3 +76,30 @@ document.querySelector('#bookList').addEventListener('click', (e) => {
 
   BookApp.removeBook(e.target.id);
 });
+const addBooksToList = document.getElementById('bk-List');
+const addForm = document.getElementById('add-form');
+const contactForm = document.getElementById('contact-form');
+const addBooks = document.getElementById('book-entry');
+const bookList = document.getElementById('bookList');
+const contact = document.getElementById('contact-sec');
+
+function displayForm () {
+  addBooks.classList.remove('none');
+  bookList.classList.add('none');
+  contact.classList.add('none');
+}
+function displayBook () {
+  bookList.classList.remove('none');
+  addBooks.classList.add('none');
+  contact.classList.add('none');
+}
+function displayContact () {
+  contact.classList.remove('none');
+  bookList.classList.add('none');
+  addBooks.classList.add('none');
+}
+addForm.addEventListener('click', displayForm);
+addBooksToList.addEventListener('click', displayBook);
+contactForm.addEventListener('click', displayContact);
+
+
