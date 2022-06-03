@@ -32,6 +32,7 @@ class Book {
     this.displayBooks();
   }
 
+<<<<<<< HEAD
   static displayBooks = () => {
     bookList.innerHTML = '';
     const books = this.getBooks();
@@ -46,6 +47,36 @@ class Book {
       bookList.innerHTML += bookItem;
     });
     return bookList;
+=======
+  static removeBook(title) {
+    const books = Book.getBooks();
+
+    books.forEach((book, index) => {
+      if (book.title === title) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static addBooksToList(book) {
+    const list = document.querySelector('#book-list');
+
+    const itemsList = document.createElement('li');
+
+    itemsList.innerHTML = `
+        <p>${book.title} by <span>${book.author}</span></p>
+        <button id=${book.title} type="submit" class="remove">Remove</button>
+        `;
+
+    list.appendChild(itemsList);
+  }
+
+  static displayBooks() {
+    const books = Book.getBooks();
+
+    books.forEach((book) => Book.addBooksToList(book));
+>>>>>>> 70cc3d0f83ab3cd7219067ff9a242c5f7cb96227
   }
 
   static deleteBook(target) {
@@ -64,9 +95,22 @@ const btnAdd = document.getElementById('btnAdd');
 btnAdd.addEventListener('click', () => {
   Book.addBook(titleInput.value, authorInput.value);
 
+<<<<<<< HEAD
 });
 
 document.addEventListener('click', (e) => {
   const id = e.target.attributes.id.value;
   Book.removeBook(id);
+=======
+  const book = new Book(title, author);
+  
+  Book.addBooksToList(book);
+  Book.addBooks(book);
+});
+
+document.querySelector('#book-list').addEventListener('click', (e) => {
+  Book.deleteBook(e.target);
+
+  Book.removeBook(e.target.title);
+>>>>>>> 70cc3d0f83ab3cd7219067ff9a242c5f7cb96227
 });
