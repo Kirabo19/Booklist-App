@@ -1,62 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/app.js" defer></script>
+        <title>Awesome Books</title>
+    </head>
+    <body>
+        <header class="book-app flex">
+            <div class="app-title">Awesome Books</div>
+            <nav>
+                <ul class="navlist flex">
+                    <li id = "bk-List"><a href="#">List</a></li>
+                    <li><hr class="vl nav_element"></li>
+                    <li id="add-form"><a class="nav_link" href="#">Add new</a></li>
+                    <li><hr class="vl nav_element"></li>
+                    <li id="open-contact"><a class="nav_link" href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="flex">
+            <h1>All awesome Books</h1>
+            <ul id="books-list"></ul>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Awesome books</title>
-    <script src="./js/app.js" defer></script>
-</head>
-
-<body>
-    <header class="book-app flex">
-        <div class="app-title">Awesome books</div>
-        <nav>
-            <ul class=" navlist flex">
-                <li id="bk-List"><a href="">List</a></li>
-                <li>|</li>
-                <li id="add-form"><a href="">Add New Book</a< /li>
-                <li>|</li>
-                <li id="contact-form"><a href="">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="list-sec" class="list-display flex">
-        <div class="currentDT">March 19th 2021, 9:25:32 am</div>
-        <h1>All awesome books</h1>
-        <ul id="bookList"></ul>
-    </section>
-    <!-- <div class="hr-display flex">
-        <hr>
-    </div> -->
-
-    <section id="book-entry" class="Add-book-section flex dontShow">
+        </section>
+      <section id="add_books" class="dontShow">
         <h1>Add a new book</h1>
-        <form id="book-entry-form">
+            <form id="books-form">
             <div class="form-input flex">
-                <input type="text" id="title" placeholder="Title"><br>
-                <input type="text" id="author" placeholder="Author"><br>
-                <button type="submit">Add</button>
+                    <input type="text" id="title" placeholder="Title:"><br>
+                    <input type="text" id="author" placeholder="Author:"><br>
+                    <button type="submit">Add</button>
             </div>
-        </form>
-    </section>
-    <section id="contact-sec" class="contact-form dontShow">
-        <h1>Contact Information</h1>
-        <p>Do have any question or you just want to say "Hello"?<br>
-            You can reach out to us!
+            </form>
+      </section>
+      <section id="contact" class="dontShow">
+        <h1>Contact information</h1>
+        <p>
+            Do have any question or you just want t say "Hello"?<br>
+            You can reach out to us! 
         </p>
-         <ul>
-             <li>Our email: mail@mail.com</li>
-             <li>Our phone number: 0043586534422</li>
-             <li>Our address: Streetname 22, 84503 City, Country</li>
-         </ul>
-    </section>
-    <footer>
-        <div>Copyright   ...</div>
-    </footer>
-</body>
-
-</html>
+        <ul class="contact_list">
+            <li>Our e-mail: mail@mail.com</li>
+            <li>Our phone number: 0043586534422</li>
+            <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
+      </section>
+      <footer>
+        <p class="copyright">Copyright    ...</p>
+      </footer>
+    </body>
+</html> 

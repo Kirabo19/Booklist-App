@@ -1,4 +1,4 @@
-class BookApp {
+class Book {
   constructor(title, author, id) {
     this.title = title;
     this.author = author;
@@ -15,13 +15,14 @@ class BookApp {
   }
 
   static addBooks(book) {
-    const books = BookApp.getBooks();
+    const books = Book.getBooks();
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   }
 
   static removeBook(id) {
-    const books = BookApp.getBooks();
+    const books = Book.getBooks();
+
     books.forEach((book, index) => {
       if (book.id === id) {
         books.splice(index, 1);
@@ -31,7 +32,7 @@ class BookApp {
   }
 
   static addBooksToList(book) {
-    const list = document.querySelector('#bookList');
+    const list = document.querySelector('#books-list');
 
     const itemsList = document.createElement('li');
 
@@ -44,9 +45,9 @@ class BookApp {
   }
 
   static displayBooks() {
-    const books = BookApp.getBooks();
+    const books = Book.getBooks();
 
-    books.forEach((book) => BookApp.addBooksToList(book));
+    books.forEach((book) => Book.addBooksToList(book));
   }
 
   static deleteBook(target) {
@@ -56,50 +57,56 @@ class BookApp {
   }
 }
 
-document.addEventListener('DOMContentLoaded', BookApp.displayBooks);
+document.addEventListener('DOMContentLoaded', Book.displayBooks);
 
-const form = document.querySelector('#book-entry-form');
+const form = document.querySelector('#books-form');
 
 form.addEventListener('submit', () => {
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
   const id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
 
-  const book = new BookApp(title, author, id);
+  const book = new Book(title, author, id);
 
-  BookApp.addBooksToList(book);
-  BookApp.addBooks(book);
+  Book.addBooksToList(book);
+  Book.addBooks(book);
+
+  form.reset();
 });
 
-document.querySelector('#bookList').addEventListener('click', (e) => {
-  BookApp.deleteBook(e.target);
+document.querySelector('#books-list').addEventListener('click', (e) => {
+  Book.deleteBook(e.target);
 
-  BookApp.removeBook(e.target.id);
+  Book.removeBook(e.target.id);
 });
-const addBooksToList = document.getElementById('bk-List');
-const addForm = document.getElementById('add-form');
-const contactForm = document.getElementById('contact-form');
-const addBooks = document.getElementById('book-entry');
-const bookList = document.getElementById('bookList');
-const contact = document.getElementById('contact-sec');
 
-function displayForm () {
-  addBooks.classList.remove('none');
-  bookList.classList.add('none');
-  contact.classList.add('none');
-}
-function displayBook () {
-  bookList.classList.remove('none');
-  addBooks.classList.add('none');
-  contact.classList.add('none');
-}
-function displayContact () {
-  contact.classList.remove('none');
-  bookList.classList.add('none');
-  addBooks.classList.add('none');
-}
-addForm.addEventListener('click', displayForm);
-addBooksToList.addEventListener('click', displayBook);
-contactForm.addEventListener('click', displayContact);
+const addBookToList = document.getElementById('bk-List');
+const openForm = document.getElementById('add-form');
+const openContact = document.getElementById('open-contact');
+const addNew = document.getElementById('add_books');
+const bookList = document.getElementById('books-list');
+const contact = document.getElementById('contact');
 
+function showForm() {
+  addNew.classList.remove('dontShow');
+  bookList.classList.add('dontShow');
+  contact.classList.add('dontShow');
+}
 
+function showBook() {
+  bookList.classList.remove('dontShow');
+  addNew.classList.add('dontShow');
+  contact.classList.add('dontShow');
+}
+
+function showContact() {
+  contact.classList.remove('dontShow');
+  bookList.classList.add('dontShow');
+  addNew.classList.add('dontShow');
+}
+
+openForm.addEventListener('click', showForm);
+
+addBookToList.addEventListener('click', showBook);
+
+openContact.addEventListener('click', showContact);
